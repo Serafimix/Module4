@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class RaceServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -31,26 +32,26 @@ public class RaceServlet extends HttpServlet {
 //        responseBody.println("<h3 align=\"center\"><a href=\"http://localhost:8080\"><-- you can tap here for BACK</a></h3>");
 
 
-        HorseDao horseDao = new HorseDao();
-
-        System.out.println(System.lineSeparator());
-        // в race сервлет по id
-        List<Horse> horsesByRaceId = horseDao.getAllHorseByRaceId(1);
-        if (!(horsesByRaceId.isEmpty())) {
-            assert false;
-            System.out.println("Date of starting race: " + horsesByRaceId.get(0).getRace().getDate());
-            System.out.println("Number of horses: " + horsesByRaceId.size());
-
-            horsesByRaceId.forEach(x -> {
-                if (x.isChosen()) {
-                    System.out.println("BIG CHOSE " + x.getName() + " come in " + x.getPlace() + " place.");
-                } else {
-                    System.out.println(x.getName() + " come in " + x.getPlace() + " place.");
-                }
-            });
-        } else {
-            System.out.println("ERROR race not found ERROR");
-        }
+//        HorseDao horseDao = new HorseDao();
+//
+//        System.out.println(System.lineSeparator());
+//        // в race сервлет по id
+//        List<Horse> horsesByRaceId = horseDao.getAllHorseByRaceId(1);
+//        if (!(horsesByRaceId.isEmpty())) {
+//            assert false;
+//            System.out.println("Date of starting race: " + horsesByRaceId.get(0).getRace().getDate());
+//            System.out.println("Number of horses: " + horsesByRaceId.size());
+//
+//            horsesByRaceId.forEach(x -> {
+//                if (x.isChosen()) {
+//                    System.out.println("BIG CHOSE " + x.getName() + " come in " + x.getPlace() + " place.");
+//                } else {
+//                    System.out.println(x.getName() + " come in " + x.getPlace() + " place.");
+//                }
+//            });
+//        } else {
+//            System.out.println("ERROR race not found ERROR");
+//        }
 
 
     }

@@ -14,7 +14,7 @@ public class HorseThread extends Thread {
     private final int number;
     private int distance;
     private volatile int placeInRace;
-    private static final AtomicInteger placeCount = new AtomicInteger(0);
+    static final AtomicInteger placeCount = new AtomicInteger(0);
 
     public static void setCount(int count) {
         HorseThread.count = count;
@@ -23,6 +23,7 @@ public class HorseThread extends Thread {
     public HorseThread() {
         number = count++;
     }
+
 
     @SneakyThrows
     @Override

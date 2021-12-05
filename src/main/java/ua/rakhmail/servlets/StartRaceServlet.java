@@ -1,6 +1,5 @@
 package ua.rakhmail.servlets;
 
-import lombok.SneakyThrows;
 import ua.rakhmail.entity.hippodrome.SaveEntity;
 
 import javax.servlet.http.HttpServlet;
@@ -23,7 +22,7 @@ public class StartRaceServlet extends HttpServlet {
         int horseInt;
         int choseInt;
 
-        try {
+        try{
             horseInt = Integer.parseInt(horseStr);
             choseInt = Integer.parseInt(choseStr);
             if ((horseInt > 0 && horseInt < Integer.MAX_VALUE) && (choseInt <= horseInt)) {
@@ -32,11 +31,13 @@ public class StartRaceServlet extends HttpServlet {
                 responseBody.println("<h3>Race is start and save in DB, you can look it in" +
                         " <a href=\"http://localhost:8080/stats\">Statistic</a></h3>\n");
             } else {
+                System.out.println("Wrong");
                 responseBody.println("<h3>Please, enter only positive numbers and in the selection of a horse, </h3>");
                 responseBody.println("<h3>the number is not more than the specified number of horses.</h3>\n");
                 responseBody.println("<h3><a href=\"http://localhost:8080/form.jsp\">TRY AGAIN</a></h3></h3>");
             }
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             responseBody.println("<h3>Please, enter only positive numbers and in the selection of a horse, </h3>");
             responseBody.println("<h3>the number is not more than the specified number of horses.</h3>\n");
             responseBody.println("<h3><a href=\"http://localhost:8080/form.jsp\">TRY AGAIN</a></h3></h3>");
