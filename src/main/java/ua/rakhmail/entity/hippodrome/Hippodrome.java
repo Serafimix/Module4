@@ -13,7 +13,7 @@ public class Hippodrome {
     private boolean isEnd = true;
 
     @SneakyThrows
-    public void startRace(int horseses, int chose) {
+    public synchronized void startRace(int horseses, int chose) {
         HorseThread horseThread;
         for (int i = 1; i <= horseses; i++) {
             horseThread = new HorseThread();

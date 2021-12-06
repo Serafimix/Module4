@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SaveEntity {
 
-    public void addNewRace(int horse, int chose) {
+    public synchronized void addNewRace(int horse, int chose) {
         HorseDao horseDao = new HorseDao();
         RaceDao raceDao = new RaceDao();
         List<Horse> horses = new ArrayList<>();

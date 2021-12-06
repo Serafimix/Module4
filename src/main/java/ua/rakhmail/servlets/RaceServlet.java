@@ -63,5 +63,9 @@ public class RaceServlet extends HttpServlet {
             responseBody.println("<h4><a href=\"http://localhost:8080/race?id=" + i + "\">" +
                     "List info Race #" + i + "</a></h4>");
         }
+
+        if(raceDao.getCountOfRace() == 0){
+            responseBody.println("<h2  align=\"center\">List of race is empty</h2>");
+        }
     }
 }
