@@ -5,6 +5,7 @@ import org.hibernate.Transaction;
 import ua.rakhmail.utils.HibernateUtil;
 
 public abstract class DefaultDao {
+
     public <T> void create(T entity) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -18,6 +19,7 @@ public abstract class DefaultDao {
             e.printStackTrace();
         }
     }
+
     public <T> void update(T entity) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

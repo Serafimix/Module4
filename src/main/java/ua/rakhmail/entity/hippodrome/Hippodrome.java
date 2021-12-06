@@ -36,7 +36,6 @@ public class Hippodrome {
                 Thread.sleep(100);
             }
         }
-
     }
 
     public static List<HorseThread> getList() {

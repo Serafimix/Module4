@@ -24,7 +24,6 @@ public class HorseThread extends Thread {
         number = count++;
     }
 
-
     @SneakyThrows
     @Override
     public void run() {
@@ -34,5 +33,4 @@ public class HorseThread extends Thread {
         }
         placeInRace = placeCount.addAndGet(1);
     }
-
 }

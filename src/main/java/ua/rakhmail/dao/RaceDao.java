@@ -35,4 +35,15 @@ public class RaceDao extends DefaultDao {
             return null;
         }
     }
+
+    public Long getCountOfRace() {
+        Long count = 0L;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            count = (Long) session.createQuery(
+                    "SELECT count(*) FROM Race r").uniqueResult();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return count;
+    }
 }

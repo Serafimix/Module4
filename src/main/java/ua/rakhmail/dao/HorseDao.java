@@ -56,10 +56,10 @@ public class HorseDao extends DefaultDao {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-            return count;
+        return count;
     }
 
-    public Long getCountOfHorsesByIdRace(int id){
+    public Long getCountOfHorsesByIdRace(int id) {
         Long count = 0L;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             count = (Long) session.createQuery(

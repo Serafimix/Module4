@@ -4,7 +4,6 @@ package ua.rakhmail.servlets;
 import ua.rakhmail.dao.HorseDao;
 import ua.rakhmail.dao.RaceDao;
 import ua.rakhmail.entity.Horse;
-import ua.rakhmail.entity.Race;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,14 +19,13 @@ public class StatsServlet extends HttpServlet {
         HorseDao horseDao = new HorseDao();
         RaceDao raceDao = new RaceDao();
         List<Horse> chosenHorses = horseDao.getChosenHorses();
-        List<Race> races = raceDao.getAll();
 
         PrintWriter responseBody = resp.getWriter();
         resp.setContentType("text/html");
         responseBody.println("<h1><a href=\\>Back to localhost</a></h1>");
         responseBody.println("<h1 align=\"center\">There is a statistic of races and place of the chosen horse </h1>");
 
-        responseBody.println("<h2>Summary of races is: " + races.size() + "</h2>\n");
+        responseBody.println("<h2>Summary of races is: " + raceDao.getCountOfRace() + "</h2>\n");
         responseBody.println("<h2>Summary of horses running is: " + horseDao.getCountOfHorses() + "</h2>\n");
 
         responseBody.println("<table border=\"1\"><tr><th>Race #</th>" +
