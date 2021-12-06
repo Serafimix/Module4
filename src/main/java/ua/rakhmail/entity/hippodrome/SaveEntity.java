@@ -20,7 +20,7 @@ public class SaveEntity {
         raceDao.create(race);
 
         hippodrome.startRace(horse, chose);
-        Hippodrome.getList().forEach(x -> {
+        hippodrome.getList().forEach(x -> {
             if (x.getNumber() == chose) {
                 horses.add(new Horse(x.getName(), x.getPlaceInRace(), true, race));
 
@@ -31,7 +31,7 @@ public class SaveEntity {
         race.setHorses(horses);
 
         horses.forEach(horseDao::create);
-        Hippodrome.getList().clear();
+        hippodrome.getList().clear();
         HorseThread.placeCount.set(0);
     }
 }

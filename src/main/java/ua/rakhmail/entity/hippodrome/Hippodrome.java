@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Data
 public class Hippodrome {
-    private static List<HorseThread> list = new ArrayList<>();
+    private List<HorseThread> list = new ArrayList<>();
     private boolean isEnd = true;
 
     @SneakyThrows
@@ -36,9 +36,5 @@ public class Hippodrome {
                 Thread.sleep(100);
             }
         }
-    }
-
-    public static List<HorseThread> getList() {
-        return list;
     }
 }
