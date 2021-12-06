@@ -26,9 +26,6 @@ public class RaceServlet extends HttpServlet {
         resp.setContentType("text/html");
         List<Horse> horsesByRaceId;
         responseBody.println("<h1><a href=\\>Back to localhost</a></h1>");
-        responseBody.println("<h1 align=\"center\">There is a race vision.</h1>");
-        responseBody.println("<h2 align=\"center\">You can add to the site" +
-                " address \"?id=*race number*\" for looking the race.</h2>");
 
         String chosenRaceStr = req.getParameter("id");
         int chosenRace;
@@ -56,15 +53,15 @@ public class RaceServlet extends HttpServlet {
                     }
                 }
                 responseBody.println("<table>");
-            } else {
-                responseBody.println("<h3 align=\"center\">Please, enter only positive numbers is" +
-                        " not more than " + raceDao.getCountOfRace() + " included</h3>");
-                responseBody.println("<h3 align=\"center\"><a href=\"http://localhost:8080/race\">You can try again</a></h3>");
             }
         } catch (Exception e) {
-            responseBody.println("<h3 align=\"center\">Please, enter only positive numbers is" +
-                    " not more than " + raceDao.getCountOfRace() + " included</h3>");
-            responseBody.println("<h3 align=\"center\"><a href=\"http://localhost:8080/race\">You can try again</a></h3>");
+            System.out.println(e.getMessage());
+        }
+
+        responseBody.println("<h1 align=\"center\">There is a race vision.</h1>");
+        for (int i = 1; i <= raceDao.getCountOfRace(); i++) {
+            responseBody.println("<h4><a href=\"http://localhost:8080/race?id=" + i + "\">" +
+                    "List info Race #" + i + "</a></h4>");
         }
     }
 }
