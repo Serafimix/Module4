@@ -30,6 +30,7 @@ public class StartRaceServlet extends HttpServlet {
                 saveEntity.addNewRace(horseInt, choseInt);
                 responseBody.println("<h3>Race is start and save in DB, you can look it in" +
                         " <a href=\"http://localhost:8080/stats\">Statistic</a></h3>\n");
+                responseBody.println("<h3>or <a href=\"http://localhost:8080/form.jsp\">Start one more new race</a></h3>\n");
             } else {
                 responseBody.println("<h3>Please, enter only positive numbers and in the selection of a horse, </h3>");
                 responseBody.println("<h3>the number is not more than the specified number of horses.</h3>\n");
